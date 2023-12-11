@@ -140,7 +140,7 @@ class _HomeState extends State<Home> {
 
   void replaceVer(int start, int end) {
     var random = Random();
-
+int i = 0;
     if (start > 5) {
       for (int i = start - 6; i >= 0; i -= 6) {
         c[end] = c[i];
@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
         c[i] = Tile(color: colors[randomNumber1], icon: icons[randomNumber1]);
       }
 
-      for (int i = start; i <= end; i += 6) {
+      for (int i = i+6; i <= end; i =i+6 ) {
         var randomNumber1 = random.nextInt(6);
         c[i] = Tile(color: colors[randomNumber1], icon: icons[randomNumber1]);
       }
