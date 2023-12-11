@@ -73,8 +73,9 @@ class _HomeState extends State<Home> {
       var random = Random();
       var randomNumber1 = random.nextInt(5);
       tiles[i] = Tile(color: colors[randomNumber1], icon: icons[randomNumber1]);
-      checkForMatches();
     }
+    checkForMatches();
+
     score = 0;
     startTimer();
     // widget.audioPlayer.setAsset('assets/audio/sample_sound.mp3');
@@ -98,6 +99,7 @@ class _HomeState extends State<Home> {
           replaceHori(i);
         }
         matchesArrHori = [];
+        checkForMatches();
       }
 
       if (i < 24 && c[i].icon == c[i + 6].icon && c[i].icon == c[i + 12].icon) {
@@ -109,6 +111,7 @@ class _HomeState extends State<Home> {
 
         replaceVer(
             matchesArrVer[0][0], matchesArrVer[0][matchesArrVer[0].length - 1]);
+        checkForMatches();
 
         matchesArrVer = [];
       }
@@ -133,7 +136,6 @@ class _HomeState extends State<Home> {
             Tile(color: colors[randomNumber1], icon: icons[randomNumber1]);
       }
     }
-    checkForMatches();
   }
 
   void replaceVer(int start, int end) {
@@ -153,7 +155,6 @@ class _HomeState extends State<Home> {
         c[i] = Tile(color: colors[randomNumber1], icon: icons[randomNumber1]);
       }
     }
-    checkForMatches();
   }
 
   List<int> checkAdditionalMatchesHori(int i) {
